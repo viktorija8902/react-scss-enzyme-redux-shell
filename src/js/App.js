@@ -10,13 +10,16 @@ class App extends Component {
     this.props.getData();
   }
   render() {
+    const results = this.props.data && this.props.data.map(item => {
+      return <div key={item.name}>{item.name}</div>
+    });
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        {this.props.data}
+        {results}
         {this.props.error && <div>Error!!</div>}
         <AnotherFile test={"test test test"}/>
       </div>

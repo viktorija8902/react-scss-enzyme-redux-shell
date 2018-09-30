@@ -6,13 +6,14 @@ let initialState = {
 const results = (state = initialState, action) => {
   switch (action.type) {
     case 'SHOW_ERROR':
+      console.log(action.error)
       return Object.assign({}, state, {
-        error: JSON.stringify(action.error)
+        error: true,
       })
     case 'LOAD_DATA':
       console.log("action.data", action.data)
       return Object.assign({}, state, {
-        data: JSON.stringify(action.data)
+        data: action.data
       })
     default:
       return state
